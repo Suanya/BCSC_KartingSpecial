@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// holding information about position and rotation of GhostKart
 public struct GhostTransform
 {
     public Vector3 position;
     public Quaternion rotation;
 
+    // constructor translating a regular transform into a GhostTransform
     public GhostTransform(Transform transform)
     {
         this.position = transform.position;
