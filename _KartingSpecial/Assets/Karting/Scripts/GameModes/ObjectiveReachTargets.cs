@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class ObjectiveReachTargets : Objective
 {
-
+    
     [Tooltip("Choose whether you need to collect all pickups or only a minimum amount")]
     public bool mustCollectAllPickups = true;
     

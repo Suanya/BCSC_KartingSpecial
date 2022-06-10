@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 // holding information about position and rotation of GhostKart
 public struct GhostTransform
@@ -20,6 +21,11 @@ public class GhostManager : MonoBehaviour
 {
     public Transform kart;
     public Transform ghostKart;
+
+    // new camera position vor recording
+    public Transform camearPlaceholder;
+    public CinemachineVirtualCamera cinemachineCam;
+
 
     public bool recording;
     public bool playing;
@@ -57,6 +63,10 @@ public class GhostManager : MonoBehaviour
     {
         ghostKart.gameObject.SetActive(true);
         StartCoroutine(StartGhost());
+
+        cinemachineCam.LookAt = camearPlaceholder;
+        cinemachineCam.Follow = camearPlaceholder;
+
         playing = false;
     }
 

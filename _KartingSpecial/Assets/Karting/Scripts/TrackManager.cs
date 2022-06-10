@@ -4,8 +4,10 @@ using UnityEngine;
 using KartGame.KartSystems;
 using System.Linq;
 
+
 namespace KartGame.Track
 {
+    /*
     /// <summary>
     /// A Monobehavior to deal with all the time and positions for the racers
     /// </summary>
@@ -160,7 +162,6 @@ namespace KartGame.Track
         /*
         private void CheckRacerHitCheckpoint (IRacer racer, Checkpoint checkpoint)
         */
-    }
-}
 
+}
 
