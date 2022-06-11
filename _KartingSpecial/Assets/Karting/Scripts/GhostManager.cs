@@ -63,7 +63,7 @@ public class GhostManager : MonoBehaviour
     {
         ghostKart.gameObject.SetActive(true);
         StartCoroutine(StartGhost());
-
+        
         cinemachineCam.LookAt = camearPlaceholder;
         cinemachineCam.Follow = camearPlaceholder;
 
