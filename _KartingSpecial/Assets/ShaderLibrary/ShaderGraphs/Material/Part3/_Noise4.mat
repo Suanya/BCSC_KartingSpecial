@@ -52,6 +52,8 @@ Material:
     - Vector1_b1e70cd375e745d181b769e35d4d1f7b: 2
     - _NoiseScale: 1
     - _PulseRate: 1
+    - _QueueControl: 0
+    - _QueueOffset: 0
     m_Colors:
     - Color_36a2593de55d4ffd8a57a76086b2131c: {r: 0.56170344, g: 1, b: 0, a: 0}
     - _NoiseColor: {r: 1, g: 0.93442965, b: 0, a: 0}

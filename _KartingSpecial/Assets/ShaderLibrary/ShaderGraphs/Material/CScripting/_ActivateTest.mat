@@ -50,6 +50,8 @@ Material:
     m_Floats:
     - _ActivatePulseRate: 2
     - _ActivateScale: 3
+    - _QueueControl: 0
+    - _QueueOffset: 0
     m_Colors:
     - _ActivateChangeColor: {r: 1, g: 0.95919025, b: 0, a: 1}
     - _ActivateColor: {r: 1, g: 0, b: 0.19821882, a: 1}
