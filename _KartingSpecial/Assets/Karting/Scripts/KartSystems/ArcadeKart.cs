@@ -441,6 +441,8 @@ namespace KartGame.KartSystems
             // use the max speed for the direction we are going--forward or reverse.
             float maxSpeed = localVelDirectionIsFwd ? m_FinalStats.TopSpeed : m_FinalStats.ReverseSpeed;
             float accelPower = accelDirectionIsFwd ? m_FinalStats.Acceleration : m_FinalStats.ReverseAcceleration;
+            Debug.Log("MoveVehicle topSpeed is: " + m_FinalStats.TopSpeed); // added for speedCheck
+            Debug.Log("MoveVehicle Acceleration is: " + m_FinalStats.Acceleration); // added for accCheck
 
             float currentSpeed = Rigidbody.velocity.magnitude;
             float accelRampT = currentSpeed / maxSpeed;
@@ -611,11 +613,34 @@ namespace KartGame.KartSystems
             ActivateDriftVFX(IsDrifting && GroundPercent > 0.0f);
         }
 
-        //public float whiteMudSlowDown = 20f;
-        public void OnTriggerEnter(Collider other)
+        public bool m_hitSnow;
+        private void OnTriggerStay(Collider other)
         {
-            MudSlowDown();
-            Debug.Log("mudDown");
+            if (!other.CompareTag("Track"))
+            {
+                IsDrifting = false;
+                Debug.Log("IsDriftingFalse");
+
+                m_FinalStats.TopSpeed = 3;
+                m_FinalStats.Acceleration = 2;
+                Debug.Log("MudSpeed" + m_FinalStats.TopSpeed);
+
+                m_hitSnow = true;
+                MoveVehicle(false, false, 0);
+                Debug.Log("MoveVehivleFalse0");
+
+                DriftGrip = 2;
+                Debug.Log("touchedSnow");
+            }
+        }
+
+        private void OnTriggerExit(Collider other)
+        {
+            if (!other.CompareTag("Track"))
+            {
+                m_hitSnow = false;
+                Debug.Log("LeftSnow");
+            }
         }
     }
 }

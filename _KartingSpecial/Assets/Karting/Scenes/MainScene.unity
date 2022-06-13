@@ -5905,7 +5905,7 @@ MonoBehaviour:
   GroundLayers:
     serializedVersion: 2
     m_Bits: 4294967291
-  whiteMudSlowDown: 20
+  m_hitSnow: 0
 --- !u!114 &7694986080479671159
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6490,10 +6490,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: RACE
       objectReference: {fileID: 0}
+    - target: {fileID: 3709794072080700450, guid: 7efc4bb078509421fbaaca6ad9af5b75,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3709794073084230519, guid: 7efc4bb078509421fbaaca6ad9af5b75,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5559941330277369990, guid: 7efc4bb078509421fbaaca6ad9af5b75,
         type: 3}
       propertyPath: m_Name
       value: BumpyMudSnow
+      objectReference: {fileID: 0}
+    - target: {fileID: 5559941330277369990, guid: 7efc4bb078509421fbaaca6ad9af5b75,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5559941330279474722, guid: 7efc4bb078509421fbaaca6ad9af5b75,
         type: 3}
@@ -6509,6 +6524,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: BumpyMudSnow (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5559941331549333459, guid: 7efc4bb078509421fbaaca6ad9af5b75,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5559941331555617143, guid: 7efc4bb078509421fbaaca6ad9af5b75,
         type: 3}
