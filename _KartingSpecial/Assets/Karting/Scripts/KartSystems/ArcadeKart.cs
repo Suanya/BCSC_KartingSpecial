@@ -3,6 +3,14 @@ using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.VFX;
 
+/// <summary>
+/// The snow on the track changes the movement of the kart:
+/// * Decrease acceleration and top speed
+/// * Increase Drifting
+/// * Play some sound
+/// * Add some visual mud to the track that triggers the mud behavior
+/// </summary>
+
 namespace KartGame.KartSystems
 {
     public class ArcadeKart : MonoBehaviour
@@ -90,7 +98,11 @@ namespace KartGame.KartSystems
             AddedGravity = 1f,
         };
 
-        [Header("Vehicle Visual")]
+        // Added for SnowChallenge
+        [Header("SnowMud")]
+        public bool m_hitSnow;
+        public AudioSource m_audioSource;
+ 
         public List<GameObject> m_VisualWheels;
 
         [Header("Vehicle Physics")]
@@ -568,7 +580,6 @@ namespace KartGame.KartSystems
                         IsDrifting = false;
                         m_CurrentGrip = m_FinalStats.Grip;
                     }
-
                 }
 
                 // rotate our velocity based on current steer value
@@ -613,24 +624,28 @@ namespace KartGame.KartSystems
             ActivateDriftVFX(IsDrifting && GroundPercent > 0.0f);
         }
 
-        public bool m_hitSnow;
+        // Added for snowChallenge
         private void OnTriggerStay(Collider other)
         {
             if (!other.CompareTag("Track"))
-            {
-                IsDrifting = false;
-                Debug.Log("IsDriftingFalse");
-
+            {       
+                // decrease speed and acceleration
                 m_FinalStats.TopSpeed = 3;
                 m_FinalStats.Acceleration = 2;
-                Debug.Log("MudSpeed" + m_FinalStats.TopSpeed);
+                Debug.Log("SnowSpeed" + m_FinalStats.TopSpeed);
 
+                // collide
                 m_hitSnow = true;
                 MoveVehicle(false, false, 0);
                 Debug.Log("MoveVehivleFalse0");
 
-                DriftGrip = 2;
-                Debug.Log("touchedSnow");
+                // snowSlider
+                m_CurrentGrip *= DriftGrip;
+                Debug.Log("Slide");
+
+                // snowSound
+                m_audioSource.Play();
+                Debug.Log("SoundOn");
             }
         }
 
